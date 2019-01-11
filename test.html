@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+</head>
+<body>
+<script>
+const MODEL_URL_less = 'web_model_less/tensorflowjs_model.pb'
+const WEIGHTS_URL_less = 'web_model_less/weights_manifest.json'
+
+const MODEL_URL = 'web_model/tensorflowjs_model.pb'
+const WEIGHTS_URL = 'web_model/weights_manifest.json'
+
+async function fun_less(){
+	console.log("111");
+	console.time('Loading of model');	
+    const model_less = await tf.loadFrozenModel(MODEL_URL_less, WEIGHTS_URL_less);
+    console.log("222");
+    console.time('Loading of model');
+}
+
+async function fun(){
+	console.log("111");
+	console.time('Loading of model');	
+    const model_less = await tf.loadFrozenModel(MODEL_URL, WEIGHTS_URL);
+    console.log("222");
+    console.time('Loading of model');
+}
+
+fun()
+</script>
+</body>
+</html>
+
